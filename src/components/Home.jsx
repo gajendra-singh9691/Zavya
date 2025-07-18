@@ -1,8 +1,10 @@
+import Slider from "./Slider"
 
 const Home = () => {
   return (
     <div>
-      This is home pge
+      {/* This is home pge */}
+      {/* <Slider /> */}
     </div>
   )
 }

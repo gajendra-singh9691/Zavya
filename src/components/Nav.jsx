@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({addtocart,fun,}) => {
+const Navbar = ({addtocart,fun,data}) => {
   const [searchQuery, setSearchQuery] = useState('');
     console.log(addtocart);
     
@@ -121,7 +121,7 @@ const Navbar = ({addtocart,fun,}) => {
               <button className="relative text-gray-700 hover:text-black transition-colors duration-200" onClick={()=>fun(!addtocart)}>
                 <i className="fas fa-shopping-cart text-lg"></i>
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                  0
+                  {data.length}
                 </span>
               </button>
 

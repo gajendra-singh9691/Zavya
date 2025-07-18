@@ -7,11 +7,11 @@ import Addtocart from './components/Addtocart'
 
 function App() {
   const [addtocart,setaddtocart] = useState(false);
-  const [data,setdata] = useState(['data','data'])
+  const [data,setdata] = useState([])
   return (
     <>
      <BrowserRouter>
-     <Nav addtocart={addtocart} fun={setaddtocart} />
+     <Nav addtocart={addtocart} fun={setaddtocart} data={data} />
      <Addtocart addtocart={addtocart} fun={setaddtocart} data={data} />
       <Routes>
         <Route path='/' element={<Home />} />
