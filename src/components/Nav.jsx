@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({addtocart,fun,data}) => {
   const [searchQuery, setSearchQuery] = useState('');
-    console.log(addtocart);
-    
+      
   const shopItems = [
     { name: "Men's Collection", path: '/shop/mens' },
     { name: "Women's Collection", path: '/shop/womens' },
