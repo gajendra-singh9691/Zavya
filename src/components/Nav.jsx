@@ -89,7 +89,7 @@ const Navbar = ({addtocart,fun,data}) => {
               <NavItem title="Blogs" items={blogItems} path="/blogs" />
             </div>
 
-            <div className="flex max-w-md mx-8 hidden md:block">
+            <div className="flex max-w-md mx-8 md:block">
               <div className="relative">
                 <input
                   type="text"

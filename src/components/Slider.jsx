@@ -1,64 +1,112 @@
-import React, { useState } from 'react';
+"use client"
+
+import { useState, useEffect, useCallback, useRef } from "react"
 
 const slides = [
   {
-    image: 'https://images.pexels.com/photos/1188083/pexels-photo-1188083.png?cs=srgb&dl=sea-dawn-nature-1188083.jpg&fm=jpg', // Replace with your image path
-    title: 'Celebrate Bonds with',
-    highlight: 'SILVER TIES',
+    id: 1,
+    title: "Beautiful Landscape",
+    description: "Discover amazing natural wonders",
+    image: "https://wallpaperaccess.com/full/1913670.jpg",
+    bgColor: "bg-blue-500",
   },
   {
-    image: 'https://images.pexels.com/photos/1188083/pexels-photo-1188083.png?cs=srgb&dl=sea-dawn-nature-1188083.jpg&fm=jpg', // Replace with your image path
-    title: 'Celebrate Bonds with',
-    highlight: 'SILVER TIES',
+    id: 2,
+    title: "City Skyline",
+    description: "Modern architecture and urban life",
+    image: "https://wallpapercave.com/wp/wp8149661.jpg",
+    bgColor: "bg-purple-500",
   },
   {
-    image: 'https://images.pexels.com/photos/1188083/pexels-photo-1188083.png?cs=srgb&dl=sea-dawn-nature-1188083.jpg&fm=jpg', // Replace with your image path
-    title: 'Celebrate Bonds with',
-    highlight: 'SILVER TIES',
+    id: 3,
+    title: "Ocean View",
+    description: "Peaceful waters and endless horizons",
+    image: "https://i.etsystatic.com/8556953/r/il/556ffc/663740398/il_fullxfull.663740398_i8a9.jpg",
+    bgColor: "bg-teal-500",
   },
-  // Add more slides as needed
-];
+  {
+    id: 4,
+    title: "Mountain Peak",
+    description: "Adventure awaits at great heights",
+    image: "https://wallpaperaccess.com/full/1913616.jpg",
+    bgColor: "bg-green-500",
+  },
+]
 
-const Slider = () => {
-  const [current, setCurrent] = useState(0);
+export default function AutoSlider() {
+  const [currentSlide, setCurrentSlide] = useState(1) // Start at 1 (first real slide)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const sliderRef = useRef(null)
 
-  const nextSlide = () => setCurrent((current + 1) % slides.length);
-  const prevSlide = () => setCurrent((current - 1 + slides.length) % slides.length);
+  // Create extended slides array with duplicates for infinite loop
+  const extendedSlides = [
+    slides[slides.length - 1], // Last slide duplicate at beginning
+    ...slides,
+    slides[0], // First slide duplicate at end
+  ]
+
+  const nextSlide = useCallback(() => {
+    if (isTransitioning) return
+
+    setIsTransitioning(true)
+    setCurrentSlide((prev) => prev + 1)
+  }, [isTransitioning])
+
+  // Handle infinite loop logic
+  useEffect(() => {
+    if (!isTransitioning) return
+
+    const timer = setTimeout(() => {
+      setIsTransitioning(false)
+
+      // If we're at the duplicate first slide (at the end), jump to real first slide
+      if (currentSlide === extendedSlides.length - 1) {
+        setCurrentSlide(1)
+      }
+      // If we're at the duplicate last slide (at the beginning), jump to real last slide
+      else if (currentSlide === 0) {
+        setCurrentSlide(slides.length)
+      }
+    }, 500) // Match transition duration
+
+    return () => clearTimeout(timer)
+  }, [currentSlide, isTransitioning, extendedSlides.length, slides.length])
+
+  // Auto-play functionality - always running
+  useEffect(() => {
+    if (isTransitioning) return
+
+    const interval = setInterval(() => {
+      nextSlide()
+    }, 8000) // Change slide every 8 seconds
+
+    return () => clearInterval(interval)
+  }, [isTransitioning, nextSlide])
 
   return (
-    <div className="relative w-full h-80 overflow-hidden rounded-2xl shadow-lg">
-      {slides.map((slide, idx) => (
-        <div
-          key={idx}
-          className={`absolute inset-0 w-full h-full flex transition-opacity duration-700 ${idx === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-        >
-          {/* Left: Image / Product Shot */}
-          <div className="w-1/2 flex items-center justify-center bg-orange-50">
-            <img src={slide.image} alt="" className="object-cover h-60 rounded-xl shadow" />
-          </div>
-          {/* Right: Text with gradient background */}
-          <div className="w-1/2 flex flex-col justify-center px-8 bg-gradient-to-l from-orange-400 to-orange-200 h-full text-right">
-            <span className="text-xl font-medium text-white">{slide.title}</span>
-            <span className="text-4xl mt-2 font-bold text-white tracking-widest">{slide.highlight}</span>
+      <div className="w-full h-full mx-auto py-4">
+        <div className="relative w-full h-140 rounded-lg overflow-hidden shadow-2xl">
+          {/* Slides Container */}
+          <div
+            ref={sliderRef}
+            className={`flex h-full ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {extendedSlides.map((slide, index) => (
+              <div
+                key={`${slide.id}-${index}`} style={{backgroundImage : `url(${slide.image}`}}
+                className={`min-w-full h-full flex items-end p-8 relative bg-center bg-cover`}
+              >
+                <div className="text-white z-10">
+                  <h2 className="text-6xl font-bold mb-4">{slide.title}</h2>
+                  <p className="text-xl opacity-90">{slide.description}</p>
+                </div>
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-      {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {slides.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-white' : 'bg-orange-300'}`}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
       </div>
-      {/* Optional: Prev/Next buttons */}
-      {/* <button onClick={prevSlide} ... /> */}
-      {/* <button onClick={nextSlide} ... /> */}
-    </div>
-  );
-};
-
-export default Slider;
+  )
+}

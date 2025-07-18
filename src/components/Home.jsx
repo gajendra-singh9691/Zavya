@@ -1,10 +1,12 @@
 import Slider from "./Slider"
+import TopCollections from "./TopCollection"
 
 const Home = () => {
   return (
     <div>
       {/* This is home pge */}
-      {/* <Slider /> */}
+      <Slider />
+      <TopCollections />
     </div>
   )
 }
