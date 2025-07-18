@@ -78,14 +78,14 @@ export default function AutoSlider() {
 
     const interval = setInterval(() => {
       nextSlide()
-    }, 8000) // Change slide every 8 seconds
+    }, 5000) // Change slide every 5 seconds
 
     return () => clearInterval(interval)
   }, [isTransitioning, nextSlide])
 
   return (
-      <div className="w-full h-full mx-auto py-4">
-        <div className="relative w-full h-140 rounded-lg overflow-hidden shadow-2xl">
+      <div className="w-full h-full mx-auto py-4 flex justify-center">
+        <div className="relative w-11/12 h-140 rounded-lg overflow-hidden shadow-2xl">
           {/* Slides Container */}
           <div
             ref={sliderRef}
