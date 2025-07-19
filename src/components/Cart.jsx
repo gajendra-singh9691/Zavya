@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 
-export default function RakhiCard({ rakhi }) {
+export default function Card({ rakhi }) {
   const [isWishlisted, setIsWishlisted] = useState(false)
 
   return (

@@ -1,4 +1,4 @@
-import RakhiCard from "./Cart";
+import Card from "./Cart";
 
 const rakhis = [
     {
@@ -112,17 +112,13 @@ const rakhis = [
     
 ];
 
-console.log(rakhis);
-
-
-
 export default function TrendingRakhis() {
     return (
         <section className="my-8 mx-auto px-4 w-11/12">
             <h2 className="text-2xl font-bold mb-6">Trending Rakhis</h2>
             <div className="flex gap-15 justify-center items-center flex-wrap">
                 {rakhis.map(rakhi => (
-                    <RakhiCard key={rakhi.id} rakhi={rakhi} />
+                    <Card key={rakhi.id} rakhi={rakhi} />
                 ))}
             </div>
         </section>
