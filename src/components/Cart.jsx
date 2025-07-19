@@ -56,7 +56,7 @@ export default function RakhiCard({ rakhi }) {
         </div>
 
         {/* Add to Cart Button */}
-        <button className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium py-2 px-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+        <button className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-medium py-2 px-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] shadow-md hover:shadow-lg flex items-center justify-center gap-2 group cursor-pointer">
           <FontAwesomeIcon
             icon={faShoppingCart}
             className="w-3 h-3 group-hover:scale-110 transition-transform duration-200"

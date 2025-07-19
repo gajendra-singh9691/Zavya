@@ -5,35 +5,46 @@ const Navbar = ({addtocart,fun,data}) => {
   const [searchQuery, setSearchQuery] = useState('');
       
   const shopItems = [
-    { name: "Men's Collection", path: '/shop/mens' },
-    { name: "Women's Collection", path: '/shop/womens' },
-    { name: 'Accessories', path: '/shop/accessories' },
-    { name: 'New Arrivals', path: '/shop/new-arrivals' },
-    { name: 'Sale', path: '/shop/sale' }
+    { name: "Rakhi", path: '/shop/rakhi' },
+    { name: "Anklets", path: '/shop/anklets' },
+    { name: 'Bracelets', path: '/shop/bracelets' },
+    { name: 'Necklaces & Pendants', path: '/shop/nacklaces-pendats' },
+    { name: 'Chain', path: '/shop/chain' },
+    { name: 'Jewellery Sets', path: '/shop/jewellery-sets' },
+    { name: 'Rings', path: '/shop/rings' },
+    { name: 'Toe Rings', path: '/shop/toe-rings' },
+    { name: 'Mangalsutra', path: '/shop/mangalsutra' },
+    { name: 'Nose pin', path: '/shop/nose-pin' },
+    { name: 'Shop All', path: '/shop/all' },
   ];
 
   const collectionItems = [
-    { name: 'Summer 2024', path: '/collections/summer-2024' },
-    { name: 'Winter Collection', path: '/collections/winter' },
-    { name: 'Ethnic Wear', path: '/collections/ethnic' },
-    { name: 'Casual Wear', path: '/collections/casual' },
-    { name: 'Formal Wear', path: '/collections/formal' }
+    { name: 'Rakhi Collection', path: '/collections/rakhi' },
+    { name: 'Ruby Collection', path: '/collections/ruby' },
+    { name: 'Peacock Collection', path: '/collections/peacock' },
+    { name: 'Infinity Collection', path: '/collections/infinity' },
+    { name: 'Pure Silve', path: '/collections/pure-silve' },
+    { name: 'Heart Collection', path: '/collections/heart' },
+    { name: 'Starry Night Collection', path: '/collections/starry-night' },
+    { name: 'Ocean Blue Collection', path: '/collections/ocean-blu' },
+    { name: 'Solitaire Collection', path: '/collections/solitaire' },
+    { name: 'Minimal Collection', path: '/collections/minimal' },
+    { name: 'Date Night Collection', path: '/collections/date-night' },
+    { name: 'Evil Eye Collection', path: '/collections/evil-eye' },
+    { name: 'Pearl-tastic Collection', path: '/collections/pearl-tastic' },
+    { name: 'Nature Inspired Collection', path: '/collections/nature-inspired' },
   ];
 
   const aboutItems = [
-    { name: 'Our Story', path: '/about/story' },
-    { name: 'Team', path: '/about/team' },
+    { name: 'About Brand', path: '/about/brand' },
+    { name: 'Our Launch Campaign', path: '/about/our-launch-campaign' },
     { name: 'Careers', path: '/about/careers' },
-    { name: 'Contact Us', path: '/about/contact' },
-    { name: 'Store Locations', path: '/about/locations' }
+    { name: 'Partner with Us', path: '/about/partner-with-us' },
   ];
 
   const blogItems = [
-    { name: 'Fashion Trends', path: '/blogs/fashion-trends' },
-    { name: 'Style Guide', path: '/blogs/style-guide' },
-    { name: 'Behind the Scenes', path: '/blogs/behind-scenes' },
-    { name: 'News & Updates', path: '/blogs/news' },
-    { name: 'Customer Stories', path: '/blogs/stories' }
+    { name: 'Jewellery Care', path: '/blogs/jewellery-care' },
+    { name: 'Styling Tips', path: '/blogs/styling-tips' },
   ];
 
   const NavItem = ({ title, items, path }) => (
@@ -52,7 +63,7 @@ const Navbar = ({addtocart,fun,data}) => {
             {items.map((item, index) => (
               <Link
                 key={index}
-                a={item.path}
+                to={item.path}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors duration-150"
               >
                 {item.name}

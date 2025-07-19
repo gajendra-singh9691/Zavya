@@ -27,7 +27,7 @@ const JoinCommunity = () => {
             >
                 <input
                     type="email"
-                    className="flex-grow px-4 py-3 w-md rounded-full border border-gray-200 focus:ring-2 focus:ring-indigo-400 focus:outline-none text-gray-900 placeholder-gray-400 bg-white/60 shadow-sm max-w-md"
+                    className="flex-grow px-4 py-3 w-md rounded-full border border-gray-200  focus:outline-none text-gray-900 placeholder-gray-400 bg-white/60 shadow-sm max-w-md"
                     placeholder="Your email address"
                     required
                     value={email}
