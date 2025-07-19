@@ -4,7 +4,8 @@ import Nav from './components/Nav'
 import Home from './components/Home'
 import { useState } from 'react'
 import Addtocart from './components/Addtocart'
-
+import Footer from './components/Footer'
+import JoinCommunity from './components/JoinCommunity'
 function App() {
   const [addtocart,setaddtocart] = useState(false);
   const [data,setdata] = useState([])
@@ -16,6 +17,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
+      <JoinCommunity />
+      <Footer />
      </BrowserRouter>
     </>
   )

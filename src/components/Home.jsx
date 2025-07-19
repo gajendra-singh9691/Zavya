@@ -13,8 +13,6 @@ const Home = () => {
       <Banner image={banner} />
       <GiftBadges />
       <TrendingRakhis />
-      {/* <Banner  /> */}
-      <Footer />
     </div>
   )
 }

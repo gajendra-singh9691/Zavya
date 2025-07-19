@@ -35,9 +35,9 @@ const collections = [
 ];
 
 const TopCollections = () => (
-  <div className="px-8 py-6">
-    <h2 className="text-xl font-semibold mb-6">Top Collections</h2>
-    <div className="flex flex-wrap gap-6">
+  <div className="px-18 py-16">
+    <h2 className="text-3xl font-bold mb-6">Top Collections</h2>
+    <div className="flex flex-wrap gap-6 justify-center">
       {collections.map((col) => (
         <Link
           to={col.path}

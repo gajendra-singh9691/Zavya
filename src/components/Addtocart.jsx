@@ -20,7 +20,7 @@ const Addtocart = ({ addtocart, fun, data }) => {
         }
     }
     return (
-        <div className='absolute z-40 right-0 top-0 min-h-screen bg-[#3b3b3b8d] duration-200' style={{ width: width }} onClick={cartopenclose} >
+        <div className='fixed z-40 right-0 top-0 min-h-screen bg-[#3b3b3b8d] duration-200' style={{ width: width }} onClick={cartopenclose} >
             <div ref={cart} className='w-1/4 absolute top-0 right-0 bg-white h-full z-50'>
                 <div className='flex items-center justify-between p-4 border-b-2 border-gray-300 '>
                     <span>SHOPPING CART</span>

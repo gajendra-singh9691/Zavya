@@ -117,7 +117,7 @@ const Navbar = ({addtocart,fun,data}) => {
               </Link>
 
               {/* Cart Icon */}
-              <button className="relative text-gray-700 hover:text-black transition-colors duration-200" onClick={()=>fun(!addtocart)}>
+              <button className="relative text-gray-700 hover:text-black transition-colors duration-200 cursor-pointer" onClick={()=>fun(!addtocart)}>
                 <i className="fas fa-shopping-cart text-lg"></i>
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                   {data.length}
