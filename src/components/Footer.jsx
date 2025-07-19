@@ -5,7 +5,7 @@ export default function Footer() {
         {/* Logo and Tagline */}
         <div className="flex items-center mb-5">
           <div className="mr-6">
-            <span className="text-4xl font-bold border-b-4 border-gray-900 pb-0.5">zavya</span>
+            <span className="text-4xl font-bold border-b-4 border-t-4 border-gray-900 pb-0.5">ZAVYA</span>
           </div>
           <div className="text-lg text-gray-600">She's my constant. My forever. My always</div>
         </div>

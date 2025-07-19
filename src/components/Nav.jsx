@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({addtocart,fun,data}) => {
+const Navbar = ({addtocart,fun,data,onClick}) => {
   const [searchQuery, setSearchQuery] = useState('');
       
   const shopItems = [
@@ -36,7 +36,7 @@ const Navbar = ({addtocart,fun,data}) => {
   ];
 
   const aboutItems = [
-    { name: 'About Brand', path: '/about/brand' },
+    { name: 'About Brand', path: '/about' },
     { name: 'Our Launch Campaign', path: '/about/our-launch-campaign' },
     { name: 'Careers', path: '/about/careers' },
     { name: 'Partner with Us', path: '/about/partner-with-us' },
@@ -88,7 +88,7 @@ const Navbar = ({addtocart,fun,data}) => {
             
             {/* Logo */}
             <div >
-              <Link to="/" className="text-3xl font-bold text-black border-t-2 border-b-2">zavya</Link>
+              <Link to="/" className="text-3xl font-bold text-black border-b-4 border-t-4">ZAVYA</Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -115,12 +115,12 @@ const Navbar = ({addtocart,fun,data}) => {
             {/* Right Side Icons */}
             <div className="flex items-center space-x-4">
               {/* User Icon */}
-              <Link a="/profile" className="text-gray-700 hover:text-black transition-colors duration-200">
+              <button onClick={onClick} className="text-gray-700 hover:text-black transition-colors duration-200">
                 <i className="fas fa-user text-lg"></i>
-              </Link>
+              </button>
 
               {/* Wishlist Icon */}
-              <Link a="/wishlist" className="relative text-gray-700 hover:text-black transition-colors duration-200">
+              <Link to="/wishlist" className="relative text-gray-700 hover:text-black transition-colors duration-200">
                 <i className="fas fa-heart text-lg"></i>
                 <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                   0
@@ -147,7 +147,6 @@ const Navbar = ({addtocart,fun,data}) => {
             <div className="relative">
               <input
                 type="text"
-                // placeholder="Search \"Bracelets\""
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-2 pl-10 pr-4 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
